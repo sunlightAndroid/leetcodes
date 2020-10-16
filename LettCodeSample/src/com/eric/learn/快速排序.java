@@ -9,7 +9,7 @@ public class 快速排序 {
 		int[] array3 = new int[] { 10, 7, 2, 4, 7, 62, 3, 4, 2, 1, 8, 9, 19 };
 		quickSort(array3, 0, array3.length - 1);
 		 for (int i = 0; i < array3.length; i++) {
-	            // System.out.println(array3[i]);
+	             System.out.println(array3[i]);
 	        }
 	}
 
