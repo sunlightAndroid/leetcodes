@@ -48,7 +48,7 @@ public class LongestSubstring {
 			}
 		}
 
-		 max = max < temp ? temp : max;
+		max = max < temp ? temp : max;
 		return max;
 	}
 
