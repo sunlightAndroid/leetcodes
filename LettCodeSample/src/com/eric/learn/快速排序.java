@@ -7,10 +7,16 @@ public class 快速排序 {
 		int[] array2 = new int[] { 6, 5, 3, 4, 3, 2, 1 };
 
 		int[] array3 = new int[] { 10, 7, 2, 4, 7, 62, 3, 4, 2, 1, 8, 9, 19 };
-		quickSort(array3, 0, array3.length - 1);
-		 for (int i = 0; i < array3.length; i++) {
-	             System.out.println(array3[i]);
-	        }
+		
+		int[] array4 = new int[] { 4, 2, 3, 6, 5,8, 7, 1};
+		
+		int[] array5 = new int[] {4,2,3,6,5};
+		
+		// quickSort2(array3, 0, array3.length - 1);
+		quickSort2(array4);
+		for (int i = 0; i < array4.length; i++) {
+			System.out.println(array4[i]);
+		}
 	}
 
 	/**
@@ -36,13 +42,12 @@ public class 快速排序 {
 			while (temp >= arr[i] && i < j) {
 				i++;
 			}
-			
 			// 如果满足条件则交换
 			if (i < j) {
 				t = arr[j];
 				arr[j] = arr[i];
 				arr[i] = t;
-		
+
 			}
 		}
 		// 最后将基准为与i和j相等位置的数字交换
@@ -55,4 +60,50 @@ public class 快速排序 {
 
 	}
 
+	/**
+	 * 快速排序 解法二, i j同时从左边出发 i作为索引一直遍历数组查找，j作为小于标定点的数组最后一个元素下标
+	 * https://www.jianshu.com/p/a68f72278f8f
+	 */
+	public static void quickSort2(int[] arr) {
+		quickSort2(arr,0,arr.length-1);
+	}
+	
+	public static void quickSort2(int[] arr, int  l, int r) {
+		if(l >= r) return;
+		int p = partition(arr,l,r);
+		quickSort2(arr,l,p -1 );
+		quickSort2(arr,p+1,r);
+	}
+	
+	public static int partition(int[] arr, int l, int r) {
+		int v = arr[l]; // 标定点
+		int j = l;
+		// i 索引
+		for (int i = l+1; i <= r; i++) {
+			if(arr[i] < v) {
+				j++ ;
+				swip(arr, i,j);
+			}
+		}
+		// j 与 l的数据进行交换
+		swip(arr, j,l);
+		return j;
+	}
+	
+	/**
+	 * 交换数组的两个数据
+	 */
+	private static void swip(int[] array, int i, int j) {
+		int temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
+	}
 }
+
+
+
+
+
+
+
+
