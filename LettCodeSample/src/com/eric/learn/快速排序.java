@@ -12,10 +12,12 @@ public class 快速排序 {
 		
 		int[] array5 = new int[] {4,2,3,6,5};
 		
-		// quickSort2(array3, 0, array3.length - 1);
-		quickSort2(array4);
-		for (int i = 0; i < array4.length; i++) {
-			System.out.println(array4[i]);
+		int[] array6 = new int[] {5,3,6,4,1,2};
+		
+		
+		quickSort2(array6);
+		for (int i = 0; i < array6.length; i++) {
+			System.out.print(array6[i] + "  ");
 		}
 	}
 

@@ -30,6 +30,7 @@ public class 冒泡排序 {
 				}
 			}
 		}
+		
 		// 打印一下最终排序结果
 		for (int i = 0; i < array.length; i++) {
 			System.out.print(array[i] + " ");
