@@ -8,13 +8,15 @@ import com.eric.question.model.ListNode;
 public class Leetcode00021 {
 
 	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+		if(l1 ==null) return l2;
+		if(l2 ==null) return l1;
 		ListNode trmpNode  =  l1;
 		while (trmpNode.next!=null) {
 			trmpNode = trmpNode.next;
 		}
 		trmpNode.next = l2;
 		ListNode tempNode = new ListNode(0,l1);
-		
+		if(tempNode.next == null || tempNode.next.next ==null) return tempNode.next;
 		List<Integer> list = new ArrayList<Integer>();  
 		for ( ListNode node  = tempNode.next; node !=null; node = node.next) {
 			list.add(node.val);	
@@ -24,8 +26,10 @@ public class Leetcode00021 {
 		ListNode currentNode =headNode;
 		for (int i = 0; i < resultlist.size(); i++) {
 			currentNode.val = resultlist.get(i);
-			currentNode.next = new ListNode(-1);
-			currentNode = currentNode.next;
+			if(i <resultlist.size()-1) {
+				currentNode.next = new ListNode(-1);
+				currentNode = currentNode.next;
+			}
 		}
 		return headNode;
 	}
